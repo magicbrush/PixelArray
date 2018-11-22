@@ -1,6 +1,6 @@
 // ************** 所有的数据 ************************//
 // 设置
-var debug = true;
+var debug = false;
 var showValue = true;
 
 // 数据
@@ -16,6 +16,7 @@ var drawFcn = new Function();  // 绘制函数：每个像素的”图元“
 var styleFcn = new Function(); // 风格函数: 设置显示风格
 
 // GUI
+/*
 var guiVisible = true;
 var key_GUIVisible = 'P';
 var gui,gui2;
@@ -39,3 +40,4 @@ function initGUI()
 	// Don't loop automatically
   	//noLoop();
 }
+*/

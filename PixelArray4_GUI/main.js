@@ -7,9 +7,9 @@ function setup() {
 	// 画布的坐标系统为，左上角坐标为（0，0），
 	// x方向水平向右，y方向垂直向下，单位像素
 	createCanvas(500,500);
-	//initData();
+	initData();
 
-	initGUI();
+	//initGUI();
 
   	// Don't loop automatically
   	//noLoop();
@@ -29,7 +29,7 @@ function draw() {
 		ellipse(200,300,100,80);
 	}
 
-/*
+
 	KeyControl(); // 键盘控制
 	dispControlKey(); // 显示控制按键
 	
@@ -41,7 +41,7 @@ function draw() {
 	}
 	
 	BrushUpdate (); // 笔刷交互
-	*/
+	
 
 
 	if(debug) 
