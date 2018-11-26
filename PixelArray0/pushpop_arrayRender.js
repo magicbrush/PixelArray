@@ -16,13 +16,14 @@ function setup() {
 // 函数draw()：作画阶段
 function draw() {	
 	fill(255,1);
+	noStroke();
 	rect(0,0,width,height);
 
 	var secs = millis()/1000;
 	
 	//RenderValues_0();
 	//RenderValues_1();
-	RenderValues_2();
+	RenderValues_3();
 }
 
 

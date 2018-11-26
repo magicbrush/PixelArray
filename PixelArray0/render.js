@@ -1,3 +1,4 @@
+
 function RenderValues_0()
 {
 	fill(255);
@@ -13,6 +14,31 @@ function RenderValues_0()
 			var theta = 0
 			var wd = 20+val*18;
 			var ht = 20+val*18;
+			fill(50);
+			stroke(0);
+			strokeWeight(2);
+			drawFace(x,y,theta,wd,ht);
+		}
+	}
+}
+function RenderValues_0()
+{
+	fill(255);
+	var hGap = width/resX;
+	var vGap = height/resY;
+	for(var i=0;i<resX;i++)
+	{
+		for(var j=0;j<resY;j++)
+		{
+			var val = Values[i][j];
+			var x = hGap * i + hGap/2;
+			var y = vGap * j + vGap/2;
+			var theta = 0
+			var wd = 20+val*18;
+			var ht = 20+val*18;
+			fill(50);
+			stroke(0);
+			strokeWeight(2);
 			drawFace(x,y,theta,wd,ht);
 		}
 	}
@@ -29,6 +55,9 @@ function RenderValues_1()
 		{
 			var x = hGap * i + hGap/2;
 			var y = vGap * j + vGap/2;
+			fill(50);
+			stroke(0);
+			strokeWeight(2);
 			RenderOneValue_tilt_ellipse(x,y,Values[i][j]);
 		}
 	}
@@ -50,7 +79,36 @@ function RenderValues_2()
 			var wd = 100;
 			var ht = 30 + val*20;
 			fill(val*35,val*25,255-val*23);
+
 			drawFace(x,y,theta,wd,ht);
+		}
+	}
+}
+
+function RenderValues_3()
+{
+	fill(255);
+	var hGap = width/resX;
+	var vGap = height/resY;
+	for(var i=0;i<resX;i++)
+	{
+		for(var j=0;j<resY;j++)
+		{
+			var val = Values[i][j];
+			var x = hGap * i + hGap/2;
+			var y = vGap * j + vGap/2;
+			var theta = val*0.25;
+			var wd = 100;
+			var ht = 30 + val*20;
+			fill(50*val);
+			stroke(0);
+			strokeWeight(2);
+			push();
+			translate(x,y);
+			rotate(theta);
+			rectMode(CENTER);
+			rect(0,0,wd,ht);
+			pop();
 		}
 	}
 }
