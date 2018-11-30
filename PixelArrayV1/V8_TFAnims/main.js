@@ -36,8 +36,6 @@ function draw() {
 		eval(brFcnText);
 	}
 	
-	//fill(0);
-	//rect(200,200,10,30);
 }
 
 // 初始化

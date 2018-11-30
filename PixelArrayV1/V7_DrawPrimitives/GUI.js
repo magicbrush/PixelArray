@@ -20,6 +20,7 @@ function InitGUI()
 		'ColorDispMode',
 		'ij2TFFcn',
 		'renderValueFcns',
+		'primitiveFcn',
 		'brushFcn');
 
 	// 钢笔的界面

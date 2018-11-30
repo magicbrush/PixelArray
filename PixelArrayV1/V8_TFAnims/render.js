@@ -1,5 +1,5 @@
 // ----------- 渲染整个阵列的
-function RenderValuesRect()
+function RenderValues_Default()
 {
 	fill(0);
 	var hGap = width/resX;
@@ -22,7 +22,7 @@ function RenderValuesRect()
 				colorMode(HSB,1);
 			}
 			var cr = color(v.x,v.y,v.z);
-			drawRGBRect(TF2D.x,TF2D.y,TF2D.theta,TF2D.sx,TF2D.sy,cr);
+			drawRGBPrimitive(TF2D.x,TF2D.y,TF2D.theta,TF2D.sx,TF2D.sy,cr);
 		}
 	}
 
@@ -30,7 +30,7 @@ function RenderValuesRect()
 }
 
 
-function RenderValuesRollingRect()
+function RenderValues_Rolling()
 {
 	fill(0);
 	var hGap = width/resX;
@@ -41,7 +41,6 @@ function RenderValuesRollingRect()
 		{
 			var v = Values[i][j];
 			var txt = "var TF2D = " + ij2TFFcn + "(i,j);"
-			//var TF2D = ij2TF_Rect(i,j);
 			print(txt);
 			eval(txt);
 			if(ColorDispMode==="rgb")
@@ -54,18 +53,15 @@ function RenderValuesRollingRect()
 			}
 			var cr = color(v.x,v.y,v.z);
 
-
 			var thetaSpd = v.x;
 			var thetaAdd = thetaSpd * millis()/1000;
 			var theta = TF2D.theta + thetaAdd;
 			//theta = v.x;
 
-			drawRGBRect(TF2D.x,TF2D.y,theta,TF2D.sx,TF2D.sy,cr);
+			drawRGBPrimitive(TF2D.x,TF2D.y,theta,TF2D.sx,TF2D.sy,cr);
 		}
 	}
 }
-
-
 
 function RenderValuesText()
 {
@@ -90,7 +86,6 @@ function RenderValuesText()
 			var y = TF2D.y;
 
 			push();
-			
 			translate(x,y);
 			translate(0,-2);
 			textAlign(CENTER);
@@ -108,7 +103,7 @@ function RenderValuesText()
 			pop();
 		}
 	}
-	//print("hahahaha");
+	
 }
 
 
