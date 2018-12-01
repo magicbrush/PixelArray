@@ -4,7 +4,7 @@ function RenderValues_Default()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	SetColorMode(ColorDispMode);
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -14,12 +14,10 @@ function RenderValues_Default()
 			//var TF2D = ij2TF_Rect(i,j);
 			print(txt);
 			eval(txt);
-			var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			drawRGBPrimitive(TF2D.x,TF2D.y,TF2D.theta,TF2D.sx,TF2D.sy,cr);
 		}
 	}
-
-	//print("Values[5][5]:" + Values[5][5]);
 }
 
 
@@ -28,21 +26,20 @@ function RenderValues_Rolling()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	SetColorMode(ColorDispMode);
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
 		{
 			var v = Values[i][j];
 			var txt = "var TF2D = " + ij2TFFcn + "(i,j);"
-			print(txt);
 			eval(txt);
-			var cr = color(v.x,v.y,v.z);
-			var thetaSpd = v.x;
-			var thetaAdd = thetaSpd * millis()/1000;
-			var theta = TF2D.theta + thetaAdd;
-			//theta = v.x;
+			var cr = eval(colorFcn + "(v);");
 
+			var thetaSpd = v.x;
+			var thetaAdd = thetaSpd * GetTime();
+			var theta = TF2D.theta + thetaAdd;
+			
 			drawRGBPrimitive(TF2D.x,TF2D.y,theta,TF2D.sx,TF2D.sy,cr);
 		}
 	}
@@ -54,8 +51,8 @@ function RenderValues_Zooming()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	var tNow = millis()/1000;
-	SetColorMode(ColorDispMode);
+	var tNow = GetTime();
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -63,7 +60,8 @@ function RenderValues_Zooming()
 			var v = Values[i][j];
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
-			var cr = color(v.x,v.y,v.z);
+			//var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			
 			var va = v.array();
 			var amp = map(va[0],0,1,0.6,1.2);
@@ -84,8 +82,8 @@ function RenderValues_Zooming()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	var tNow = millis()/1000;
-	SetColorMode(ColorDispMode);
+	var tNow = GetTime();
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -93,7 +91,8 @@ function RenderValues_Zooming()
 			var v = Values[i][j];
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
-			var cr = color(v.x,v.y,v.z);
+			//var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			
 			var va = v.array();
 			var amp = map(va[0],0,1,0.6,1.2);
@@ -114,8 +113,8 @@ function RenderValues_Shaking()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	var tNow = millis()/1000;
-	SetColorMode(ColorDispMode);
+	var tNow = GetTime();
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -123,7 +122,8 @@ function RenderValues_Shaking()
 			var v = Values[i][j];
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
-			var cr = color(v.x,v.y,v.z);
+			//var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			
 			var va = v.array();
 			var amp = map(va[0],0,1,1.2,3.6);
@@ -150,8 +150,8 @@ function RenderValues_Orbiting()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	var tNow = millis()/1000;
-	SetColorMode(ColorDispMode);
+	var tNow = GetTime();
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -159,7 +159,8 @@ function RenderValues_Orbiting()
 			var v = Values[i][j];
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
-			var cr = color(v.x,v.y,v.z);
+			//var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			
 			var va = v.array();
 			var radius = map(va[0],0,1,0.4,8);
@@ -183,8 +184,8 @@ function RenderValues_StepRot()
 	fill(0);
 	var hGap = width/resX;
 	var vGap = height/resY;
-	var tNow = millis()/1000;
-	SetColorMode(ColorDispMode);
+	var tNow = GetTime();
+	
 	for(var i=0;i<resX;i++)
 	{
 		for(var j=0;j<resY;j++)
@@ -192,23 +193,9 @@ function RenderValues_StepRot()
 			var v = Values[i][j];
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
-			var cr = color(v.x,v.y,v.z);
-			
+			//var cr = color(v.x,v.y,v.z);
+			var cr = eval(colorFcn + "(v);");
 			var va = v.array();
-			/*
-			var rotAmt = PI/6;
-			var rotSpan01 = map(va[0],0,1,0.1,0.5);
-			var rotPeriod = map(va[1],0,1,1,4);
-			var rotdelay01 = map(va[2],0,1,0,6.28);
-
-			var rotSpd = rotAmt/(rotSpan01*rotPeriod);
-			var rotThres = rotPeriod*rotSpan01;
-			var t0 = tNow/rotPeriod;
-			var t = (t0 - round(t0))*rotPeriod;
-			var rotSpd = thres(t, rotThres,0,rotSpd);
-
-			var theta = TF2D.theta + rotSpd * tNow;
-			*/
 
 			var spd = map(va[0],0,1,0,5);
 			var period = map(va[1],0,1,PI,3*TWO_PI);
@@ -249,19 +236,21 @@ function RenderValuesText()
 			var y = TF2D.y;
 
 			push();
-			translate(x,y);
-			translate(0,-2);
-			textAlign(CENTER);
-			textSize(12);
-			var scl = 0.02*minGap;
-			scale(scl,scl);
-			for(var k=0;k<3;k++)
 			{
-				fill(0);
-				text(vals[k],0,0);
-				fill(255);
-				text(vals[k],-0.03*minGap,0);
-				translate(0,12);
+				translate(x,y);
+				translate(0,-2);
+				textAlign(CENTER);
+				textSize(12);
+				var scl = 0.02*minGap;
+				scale(scl,scl);
+				for(var k=0;k<3;k++)
+				{
+					fill(0);
+					text(vals[k],0,0);
+					fill(255);
+					text(vals[k],-0.03*minGap,0);
+					translate(0,12);
+				}
 			}
 			pop();
 		}
