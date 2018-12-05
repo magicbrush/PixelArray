@@ -5,15 +5,17 @@
     <script src="p5Lib/p5.dom.min.js"></script>
     <script src="p5Lib/p5.sound.min.js"></script>
     <!--GUI/中的内容来自于：https://github.com/bitcraftlab/p5.gui。-->
+    <!-- 注意，这几个GUI的库文件的引用顺序，若不正确的话，界面显示也会不成功-->
     <script src="GUI/quicksettings.js"></script>
     <script src="GUI/p5.gui.js"></script>
     <script src="GUI/dat.gui.js"></script>
+
     <script src="main.js"></script>
     <script src="data.js"></script>
     <script src="init.js"></script>
     <script src="render.js"></script>
     <script src="draw.js"></script>
-    <script src="GUI.js"></script>
+    <script src="GUI.js"></script><!--有关图形界面的功能都放在这个文件 -->
     <style> body {padding: 0; margin: 0;} </style>
   </head>
   <body>

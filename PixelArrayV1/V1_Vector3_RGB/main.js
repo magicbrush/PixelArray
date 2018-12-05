@@ -1,5 +1,4 @@
 
-
 // 函数setup() : 准备阶段
 function setup() {
 	// 创建画布，宽度640像素，高度480像素
@@ -20,9 +19,6 @@ function draw() {
 	var secs = millis()/1000;
 	
 	RenderValueFcn();
-
-	//fill(0);
-	//rect(200,200,10,30);
 }
 
 // 初始化

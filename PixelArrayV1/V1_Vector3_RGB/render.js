@@ -1,5 +1,6 @@
-// ----------- 渲染整个阵列的
+// ----------- 渲染整个阵列的函数 ---------------//
 function RenderValues_RGBSquare()
+// 将阵列的每个像素渲染为一个RGB色彩的方块，相当于一幅RGB位图
 {
 	
 	fill(0);
@@ -14,13 +15,9 @@ function RenderValues_RGBSquare()
 			var y = vGap * j + vGap/2;
 			var wd = 5;
 			var ht = 5;
-			//var color = color(val.x,val.y,val.z);
-			//var color = color(255,0,0);
 			colorMode(RGB,1);
 			var cr = color(v.x,v.y,v.z);
-			//var cr = color(v,0,1);
 			drawRGBSquare(x,y,hGap,cr);
-			//rect(x,y,wd,ht);
 		}
 	}
 	

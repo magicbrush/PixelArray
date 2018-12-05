@@ -1,4 +1,4 @@
-// ------------ 阵列初始化 ---------------------------//
+// ------------ 阵列初始化 -----------------------------//
 function InitValueArray()
 {
 	Values = new Array(resX);
@@ -9,8 +9,9 @@ function InitValueArray()
 }
 
 
-// ------------ 阵列数值初始化函数 --------------------- //
+// ------------ 阵列数值初始化函数 ----------------------- //
 function InitValues_gradient()
+// 初始化为一个梯度
 {
 	var pixelNum = resX*resY;
 	var id = 0;
@@ -25,6 +26,7 @@ function InitValues_gradient()
 }
 
 function InitValues_random01()
+// 随机数值
 {
 	var pixelNum = resX*resY;
 	var id = 0;
@@ -39,6 +41,7 @@ function InitValues_random01()
 }
 
 function InitValues_noise()
+// 噪声数值
 {
 	for(var i=0;i<resX;i++)
 	{

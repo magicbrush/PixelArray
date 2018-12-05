@@ -15,8 +15,8 @@ function RenderValues_RGBSquare()
 			var y = vGap * j + vGap/2;
 			var wd = 5;
 			var ht = 5;
-			//var color = color(val.x,val.y,val.z);
-			//var color = color(255,0,0);
+			
+			// 根据选择的模式，设置颜色模式为rgb或hsb
 			if(ColorDispMode==="rgb")
 			{
 				colorMode(RGB,1);
@@ -27,13 +27,11 @@ function RenderValues_RGBSquare()
 			}
 			
 			var cr = color(v.x,v.y,v.z);
-			//var cr = color(v,0,1);
 			drawRGBRect(x,y,hGap,vGap,cr);
-			//rect(x,y,wd,ht);
 		}
 	}
 
-	print("Values[5][5]:" + Values[5][5]);
+	//print("Values[5][5]:" + Values[5][5]);
 	
 }
 

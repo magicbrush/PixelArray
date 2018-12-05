@@ -53,9 +53,6 @@ function InitValues_noise()
 	   		var z = noise(3*i/resX,2*j/resY);
 	   		var v = createVector(x,y,z);
 	   		Values[i][j] = v;
-
-	   		//print("V:" + v);
-	   		//Values[i][j] = CreateVector(0,1,1);
 	   	}
 	}
 }

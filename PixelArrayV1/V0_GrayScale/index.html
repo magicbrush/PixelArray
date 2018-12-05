@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- 需要的js文件都必须包含在这里，注意默根目录为这个index.html所在的位置 -->
+    <!-- p5的库 -->
     <script src="p5Lib/p5.min.js"></script>
     <script src="p5Lib/p5.dom.min.js"></script>
     <script src="p5Lib/p5.sound.min.js"></script>
-    <script src="main.js"></script>
-    <script src="data.js"></script>
-    <script src="init.js"></script>
-    <script src="render.js"></script>
-    <script src="draw.js"></script>
+
+    <script src="main.js"></script> <!-- 主框架 -->
+    <script src="data.js"></script><!-- 数据 -->
+    <script src="init.js"></script><!-- 初始化 -->
+    <script src="render.js"></script><!-- 数值阵列的渲染 -->
+    <script src="draw.js"></script><!-- 绘制函数 -->
     <style> body {padding: 0; margin: 0;} </style>
   </head>
   <body>

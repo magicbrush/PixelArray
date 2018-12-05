@@ -13,6 +13,6 @@ var InitValueFcn; // 数据初始化的函数
 var RenderValueFcn; // 阵列的渲染函数
 
 // GUI
-var ColorDispMode = ['rgb', 'hsb'];
+var ColorDispMode = ['rgb', 'hsb']; // 颜色模式
 
 

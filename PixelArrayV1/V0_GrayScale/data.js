@@ -5,7 +5,7 @@ var resY = 24;
 var minValue = 0;
 var maxValue = 1;
 
-// 阵列数据
+// 阵列数据：一个二维阵列
 var Values;
 
 // 函数

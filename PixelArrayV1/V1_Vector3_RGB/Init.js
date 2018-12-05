@@ -10,6 +10,8 @@ function InitValueArray()
 
 
 // ------------ 阵列数值初始化函数 --------------------- //
+// 阵列中的每个元素都初始化为一个Vector（矢量），其概念即数学中的矢量
+// 矢量运算可从p5js官网上搜索 createVector
 function InitValues_gradient()
 {
 	var pixelNum = resX*resY;
@@ -53,9 +55,6 @@ function InitValues_noise()
 	   		var z = noise(3*i/resX,2*j/resY);
 	   		var v = createVector(x,y,z);
 	   		Values[i][j] = v;
-
-	   		//print("V:" + v);
-	   		//Values[i][j] = CreateVector(0,1,1);
 	   	}
 	}
 }
