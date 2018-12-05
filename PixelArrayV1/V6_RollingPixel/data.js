@@ -12,13 +12,13 @@ var Values;
 var InitValueFcn; // 数据初始化的函数
 var ij2TFFcn = ['ij2TF_Rect', 'ij2TF_Ring']; // 坐标变换函数，用于扭曲网格
 var RenderValueFcn; // 阵列的渲染函数
-var renderValueFcns = ['RenderValuesRect','RenderValuesRollingRect'];
+var renderValueFcns = ['RenderValuesRect','RenderValuesRollingRect']; // 渲染阵列的函数
 
 // 笔刷
 var brushFcn = ['PenBrushPaint','SoftBrushPaint'];
 
 // GUI
-var ColorDispMode = ['rgb', 'hsb'];
-var dispValueText = true;
+var ColorDispMode = ['rgb', 'hsb']; // 颜色显示模式
+var dispValueText = true; // 是否显示像素的数值
 
 

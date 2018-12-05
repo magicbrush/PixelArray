@@ -1,4 +1,6 @@
-// ----------- 渲染整个阵列的
+// ----------- 渲染整个阵列的函数 -------------------- //
+
+// 渲染成彩色方块
 function RenderValuesRect()
 {
 	fill(0);
@@ -11,7 +13,7 @@ function RenderValuesRect()
 			var v = Values[i][j];
 			var txt = "var TF2D = " + ij2TFFcn + "(i,j);"
 			//var TF2D = ij2TF_Rect(i,j);
-			print(txt);
+			//print(txt);
 			eval(txt);
 			if(ColorDispMode==="rgb")
 			{
@@ -26,10 +28,9 @@ function RenderValuesRect()
 		}
 	}
 
-	//print("Values[5][5]:" + Values[5][5]);
 }
 
-
+// 显示成旋转的彩色方块
 function RenderValuesRollingRect()
 {
 	fill(0);
@@ -41,8 +42,8 @@ function RenderValuesRollingRect()
 		{
 			var v = Values[i][j];
 			var txt = "var TF2D = " + ij2TFFcn + "(i,j);"
-			//var TF2D = ij2TF_Rect(i,j);
-			print(txt);
+			
+			//print(txt);
 			eval(txt);
 			if(ColorDispMode==="rgb")
 			{
@@ -54,19 +55,17 @@ function RenderValuesRollingRect()
 			}
 			var cr = color(v.x,v.y,v.z);
 
-
+			// 随时间旋转
 			var thetaSpd = v.x;
 			var thetaAdd = thetaSpd * millis()/1000;
 			var theta = TF2D.theta + thetaAdd;
-			//theta = v.x;
 
 			drawRGBRect(TF2D.x,TF2D.y,theta,TF2D.sx,TF2D.sy,cr);
 		}
 	}
 }
 
-
-
+// 显示每个像素的数值
 function RenderValuesText()
 {
 	fill(0);
@@ -108,7 +107,6 @@ function RenderValuesText()
 			pop();
 		}
 	}
-	//print("hahahaha");
 }
 
 

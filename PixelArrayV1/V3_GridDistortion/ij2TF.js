@@ -1,21 +1,24 @@
 /* --- 坐标变换，从行列号ij变换到空间坐标x,y，
 	旋转角theta，以及缩放比例sx,sy ----------*/
 function ij2TF_Rect(i,j)
+// 根据行列号i,j变化为标准的方阵
 {
 	var hGap = width/resX;
 	var vGap = height/resY;
 
+	// 像素的方位
 	var Transform2D = {
-	  	'x': hGap * i + hGap/2, 
-	  	'y': vGap * j + vGap/2,
-	  	'theta': 0,
-	  	'sx': hGap,
+	  	'x': hGap * i + hGap/2, // 坐标x
+	  	'y': vGap * j + vGap/2, // 坐标y
+	  	'theta': 0, // 旋转角
+	  	'sx': hGap, // 缩放比例 sx,sy
 	  	'sy': vGap};
 
 	return Transform2D;
 };
 
 function ij2TF_Ring(i,j)
+// 根据行列号i,j变化为环形阵
 {
 	var size = min(width,height);
 	var diameter = size*0.8;

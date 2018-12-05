@@ -1,11 +1,14 @@
-// ----------- 笔刷-钢笔 ---------------------- //
+// ----------- 笔刷-喷笔 ---------------------- //
+// 考虑到可能又多种类型的笔刷，因此将两个笔刷的内容都放入一个文件夹中
 var SoftBrRadius = 60.0;
 var SoftBrPower = 1;
 var SoftBrValueX;
 var SoftBrValueY;
 var SoftBrValueZ;
 
+
 function Init_SoftBrush()
+// 笔刷上的“颜料”进行初始化
 {
 	SoftBrValueX = 0;
 	SoftBrValueY = 0;
@@ -14,9 +17,11 @@ function Init_SoftBrush()
 
 var prevTimeSoftBr;
 function SoftBrushStartPaint()
+// prevTimeSoftBr
 {
 	prevTimeSoftBr = millis()/1000;
 }
+
 function SoftBrushPaint()
 {
 	print("SoftBrushPaint");
@@ -38,9 +43,8 @@ function SoftBrushPaint()
 			if(length<=SoftBrRadius)
 			{
 				var len01 = length/SoftBrRadius;
-				var len01T = map(len01,0,1,1,0);
+				var len01T = map(len01,0,1,1,0); // 距离越远，绘制“强度”越小
 				var lerpT = dt * SoftBrPower * len01T;
-				//print("len01:" + len01);
 				var v = Values[i][j];
 				var v2 = p5.Vector.lerp(v,brValue3,lerpT);
 				Values[i][j] = v2;

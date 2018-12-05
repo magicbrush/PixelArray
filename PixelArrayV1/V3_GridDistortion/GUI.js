@@ -7,7 +7,7 @@ function InitGUI()
 {
 	var gui = createGui('Pixel Paint', width+1,10);
 	sliderRange(6, 48, 1);
-  	//gui2.addGlobals('shape', 'label', 'radius', 'drawFill', 'fillColor');
+	// 在GUI中增加了切换坐标变换函数的项 ij2TFFcn
 	gui.addGlobals('resX','resY','ColorDispMode','ij2TFFcn');
 }
 

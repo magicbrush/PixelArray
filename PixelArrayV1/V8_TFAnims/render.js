@@ -24,6 +24,7 @@ function RenderValues_Default()
 
 
 function RenderValues_Rolling()
+// 每个像素都在旋转
 {
 	fill(0);
 	var hGap = width/resX;
@@ -50,6 +51,7 @@ function RenderValues_Rolling()
 
 
 function RenderValues_Zooming()
+// 每个像素都在缩放
 {
 	fill(0);
 	var hGap = width/resX;
@@ -80,6 +82,7 @@ function RenderValues_Zooming()
 }
 
 function RenderValues_Zooming()
+// 每个像素都在缩放
 {
 	fill(0);
 	var hGap = width/resX;
@@ -110,6 +113,7 @@ function RenderValues_Zooming()
 }
 
 function RenderValues_Shaking()
+// 每个像素都在振动
 {
 	fill(0);
 	var hGap = width/resX;
@@ -146,6 +150,7 @@ function RenderValues_Shaking()
 }
 
 function RenderValues_Orbiting()
+// 每个像素都在转圈
 {
 	fill(0);
 	var hGap = width/resX;
@@ -179,6 +184,7 @@ function RenderValues_Orbiting()
 }
 
 function RenderValues_StepRot()
+// 每个像素按一定周期地旋转
 {
 	fill(0);
 	var hGap = width/resX;
@@ -193,22 +199,8 @@ function RenderValues_StepRot()
 			var ij2TFFcnTXT = "var TF2D = " + ij2TFFcn + "(i,j);"
 			eval(ij2TFFcnTXT);
 			var cr = color(v.x,v.y,v.z);
-			
+
 			var va = v.array();
-			/*
-			var rotAmt = PI/6;
-			var rotSpan01 = map(va[0],0,1,0.1,0.5);
-			var rotPeriod = map(va[1],0,1,1,4);
-			var rotdelay01 = map(va[2],0,1,0,6.28);
-
-			var rotSpd = rotAmt/(rotSpan01*rotPeriod);
-			var rotThres = rotPeriod*rotSpan01;
-			var t0 = tNow/rotPeriod;
-			var t = (t0 - round(t0))*rotPeriod;
-			var rotSpd = thres(t, rotThres,0,rotSpd);
-
-			var theta = TF2D.theta + rotSpd * tNow;
-			*/
 
 			var spd = map(va[0],0,1,0,5);
 			var period = map(va[1],0,1,PI,3*TWO_PI);

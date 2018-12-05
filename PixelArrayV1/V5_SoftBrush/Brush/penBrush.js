@@ -6,6 +6,7 @@ var PenValueY;
 var PenValueZ;
 
 function Init_PenBrush()
+// 笔刷上的“颜料”进行初始化
 {
 	PenValueX = 0;
 	PenValueY = 0;
@@ -14,9 +15,11 @@ function Init_PenBrush()
 
 var prevTimePenBrush;
 function PenBrushStartPaint()
+// 每次鼠标按下时调用，将preTimePenBrush记录为当前时刻
 {
 	prevTimePenBrush = millis()/1000;
 }
+
 function PenBrushPaint()
 {
 	var nowTime = millis()/1000;

@@ -9,10 +9,12 @@ function RenderValues_Rect()
 		for(var j=0;j<resY;j++)
 		{
 			var v = Values[i][j];
+
+			// 运用ij2TFFcn来计算出像素的方位TF2D
+			// TF2D是个结构体，其数据参考ij2TF.js
 			var txt = "var TF2D = " + ij2TFFcn + "(i,j);"
-			//var TF2D = ij2TF_Rect(i,j);
-			print(txt);
-			eval(txt);
+			eval(txt); // 将文本以代码方式执行
+
 			if(ColorDispMode==="rgb")
 			{
 				colorMode(RGB,1);
@@ -26,7 +28,6 @@ function RenderValues_Rect()
 		}
 	}
 
-	//print("Values[5][5]:" + Values[5][5]);
 }
 
 

@@ -2,12 +2,13 @@
 var prevResX = 24;
 var prevResY = 24;
 
+// 区分了几个不同的界面面板：主界面、钢笔、喷笔
 var guiMain;
 var guiPenBr;
 var guiSoftBr;
 var BrushGUIs = new Array();
 
-// 图形界面
+// 图形界面初始化
 function InitGUI()
 {
 	// 主界面
@@ -56,6 +57,7 @@ function GUIUpdate()
 		InitValueFcn();
 	}
 
+	// 根据选中的画笔，显示对应的界面
 	var brGUIId = 0;
 	if(brushFcn === 'PenBrushPaint')
 	{
@@ -72,6 +74,7 @@ function GUIUpdate()
 	prevResY = resY;
 }
 
+// 切换界面的可见性
 function TurnGUIsVisibleON(GUIs, id)
 {
 	for(var i=0;i<GUIs.length;i++)
