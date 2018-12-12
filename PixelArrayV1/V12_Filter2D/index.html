@@ -4,22 +4,59 @@
     <script src="p5Lib/p5.js"></script>
     <script src="p5Lib/p5.dom.min.js"></script>
     <script src="p5Lib/p5.sound.min.js"></script>
+
+    <!-- 复数运算库：https://github.com/infusion/Complex.js/ -->
+    <script src="Complex/complex.min.js"></script> 
+    
     <!--GUI/中的内容来自于：https://github.com/bitcraftlab/p5.gui。-->
     <script src="GUI/quicksettings.js"></script>
     <script src="GUI/p5.gui.js"></script>
     <script src="GUI/dat.gui.js"></script>
+
+    
+    <!-- 主框架 -->
     <script src="main.js"></script>
+
+    <!-- 数据 -->
     <script src="data.js"></script>
+
+    <!-- 初始化 -->
     <script src="init.js"></script>
-    <script src="render.js"></script>
+
+    <!-- 滤镜 -->
+    <script src="filter2D.js"></script>
+
+    <!-- 方位，Transform2D, 即坐标变换 -->
+    <script src="Transform2D.js"></script>
+
+    <!-- 从像素的行列号i,j，得到它的方位Transform2D -->
     <script src="ij2TF.js"></script>
-    <script src="draw.js"></script>
-    <script src="colorFromVec3.js"></script>
+
+    <!-- 图元 -->
     <script src="primitive.js"></script>
+
+    <!-- 基本的绘制函数 -->
+    <script src="draw.js"></script>
+
+    <!-- 从Vector转换为Color -->
+    <script src="colorFromVec3.js"></script>
+
+    <!-- 图形界面 -->
     <script src="GUI.js"></script>
+
+    <!-- 辅助功能 -->
     <script src="assist.js"></script>
+
+    <!-- 阵列渲染 -->
+    <script src="Render/render.js"></script>
+    <script src="Render/render_assist.js"></script>
+
+    <!-- 笔刷 -->
     <script src="Brush/penBrush.js"></script>
     <script src="Brush/softBrush.js"></script>
+    <script src="Brush/brushMain.js"></script> <!-- 笔刷的总控 -->
+
+
     <style> body {padding: 0; margin: 0;} </style>
   </head>
   <body>

@@ -1,7 +1,5 @@
 
 
-
-
 // 函数setup() : 准备阶段
 function setup() {
 	// 创建画布，宽度640像素，高度480像素
@@ -15,32 +13,76 @@ function setup() {
 
 // 函数draw()：作画阶段
 function draw() {	
-	GUIUpdate(); // 图形界面的更新 GUI.js
+	// 图形界面的更新 GUI.js
+	GUIUpdate(); 
+
+	// 显示背景色
 	colorMode(HSB,1);
 	fill(bgH,bgS,bgB);
-	//fill(255);
 	noStroke();
 	rect(0,0,width,height);
 
-	//var secs = millis()/1000;
+	// 更新每个像素的方位
+	updateTF2Ds();
 
+	// 滤镜
+	if(filteringSpd>0)
+	{
+		var filterCode = filteringFcns + "()";
+		//print(filterCode);
+		eval(filterCode);
+	}
+	
+
+	// 渲染每个像素
 	var renderValueFcnTxt = renderValueFcns + "()";
 	eval(renderValueFcnTxt);
 
-	//fill(0);
-	//ellipse(200,200,50,80);
+	// 渲染辅助信息
+	dispAssistInfo();
 	
+	// 鼠标绘制
+	if(mouseDown)
+	{
+		brushPaintFcn();
+		brushDispFcn();
+	}
+	
+}
+
+function dispAssistInfo()
+{
+	if(dispGrid)
+	{
+		RenderValuesGrid();
+	}
 	if(dispValueText)
 	{
 		RenderValuesText();
 	}
-	
-	if(mouseDown)
+}
+
+var lastUpdateTF2DTime=-1;
+function updateTF2Ds()
+{
+	var timeNow = millis()/1000;
+	if(lastUpdateTF2DTime<0)
 	{
-		var brFcnText = brushFcn + "();";
-		eval(brFcnText);
+		lastUpdateTF2DTime = timeNow;
+		return;
 	}
-	
+	var dt = timeNow - lastUpdateTF2DTime;
+	for(var i=0;i<resX;i++)
+	{
+	   	for(var j=0;j<resY;j++)
+	   	{
+	   		var txt = "var T = " + ij2TFFcn + "(i,j);"
+			eval(txt);
+			//TF2Ds[i][j].set(TF2D.x, TF2D.y, TF2D.theta, TF2D.sx, TF2D.sy);
+			TF2Ds[i][j].lerp(T.x,T.y,T.theta,T.sx,T.sy,dt* TFLerpSpd);
+	   	}
+	}
+	lastUpdateTF2DTime = timeNow;
 }
 
 
@@ -48,7 +90,7 @@ function draw() {
 function Init()
 {
 	// 初始化阵列数据
-	InitValueArray();
+	InitArray();
 
 	// 初始化函数
 	InitValueFcn = InitValues_noise; // 数值初始化函数， 从Init.js中选择
@@ -60,6 +102,8 @@ function Init()
 function InitBrushes () {
 	Init_PenBrush();
 	Init_SoftBrush();
+
+	ChooseBrush("PenBrush");
 }
 
 var mouseDown = false;
@@ -69,13 +113,19 @@ function mousePressed()
 	{
 		mouseDown = true;
 	}
+	/*
 	PenBrushStartPaint();
 	SoftBrushStartPaint();
+	*/
+
+	brushStartPaintFcn();
 }
 
 function mouseReleased()
 {
 	mouseDown = false;
+
+	brushEndPaintFcn();
 }
 
 

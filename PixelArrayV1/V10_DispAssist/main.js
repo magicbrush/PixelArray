@@ -1,7 +1,5 @@
 
 
-
-
 // 函数setup() : 准备阶段
 function setup() {
 	// 创建画布，宽度640像素，高度480像素
@@ -23,24 +21,47 @@ function draw() {
 	rect(0,0,width,height);
 
 	//var secs = millis()/1000;
-
+	updateTF2Ds();
+	
 	var renderValueFcnTxt = renderValueFcns + "()";
 	eval(renderValueFcnTxt);
 
-	//fill(0);
-	//ellipse(200,200,50,80);
+	dispAssistInfo();
 	
+	if(mouseDown)
+	{
+		brushPaintFcn();
+		brushDispFcn();
+	}
+	
+
+	
+}
+
+function dispAssistInfo()
+{
+	if(dispGrid)
+	{
+		RenderValuesGrid();
+	}
 	if(dispValueText)
 	{
 		RenderValuesText();
 	}
-	
-	if(mouseDown)
+}
+
+function updateTF2Ds()
+{
+	for(var i=0;i<resX;i++)
 	{
-		var brFcnText = brushFcn + "();";
-		eval(brFcnText);
+	   	for(var j=0;j<resY;j++)
+	   	{
+	   		var txt = "var T = " + ij2TFFcn + "(i,j);"
+			eval(txt);
+			//TF2Ds[i][j].set(TF2D.x, TF2D.y, TF2D.theta, TF2D.sx, TF2D.sy);
+			TF2Ds[i][j] = T;
+	   	}
 	}
-	
 }
 
 
@@ -48,7 +69,7 @@ function draw() {
 function Init()
 {
 	// 初始化阵列数据
-	InitValueArray();
+	InitArray();
 
 	// 初始化函数
 	InitValueFcn = InitValues_noise; // 数值初始化函数， 从Init.js中选择
@@ -60,6 +81,8 @@ function Init()
 function InitBrushes () {
 	Init_PenBrush();
 	Init_SoftBrush();
+
+	ChooseBrush("PenBrush");
 }
 
 var mouseDown = false;
@@ -69,13 +92,19 @@ function mousePressed()
 	{
 		mouseDown = true;
 	}
+	/*
 	PenBrushStartPaint();
 	SoftBrushStartPaint();
+	*/
+
+	brushStartPaintFcn();
 }
 
 function mouseReleased()
 {
 	mouseDown = false;
+
+	brushEndPaintFcn();
 }
 
 
